@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goutte à Goutte</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <main class="app-phone">
+    <header class="app-header">
+      <div>
+        <h1 class="app-title">Goutte à Goutte</h1>
+        <p class="app-sub">아비장 침수 방지 펀딩 · SDG 9</p>
+      </div>
+      <span class="app-badge" id="level-badge">저류 수위 64%</span>
+    </header>
+
+    <div class="app-scroll">
+      <section id="page-home" class="page is-active">
+        <div class="card">
+          <div class="card-top">
+            <span class="tag">스펀지 저류공원</span>
+            <strong class="pct"><small>펀딩</small><span id="pct-val">37.0%</span></strong>
+          </div>
+          <h2>아자메·아보보 스펀지 공원</h2>
+          <p class="desc">평소엔 산책·운동 공간, 폭우엔 빗물을 머금어 침수를 줄이는 동네 공원입니다.</p>
+
+          <div class="meter"><div class="meter-fill" id="meter-fill" style="width: 37%;"></div></div>
+          <div class="meter-meta">
+            <span id="raised-val">370,000 FCFA</span>
+            <span>목표 1,000,000 FCFA</span>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi"><span>내 누적 적립</span><strong id="mine-val">+800 F</strong></div>
+            <div class="kpi"><span>이번 쿠폰 적립 (2%)</span><strong id="preview-val">+200 F</strong></div>
+          </div>
+
+          <div class="picker-group">
+            <span class="picker-label">가맹점 선택</span>
+            <div class="chip-row" id="merchant-chips">
+              <button type="button" class="chip is-active" data-merchant="아자메 식료품점" data-target="저류공원 기금">아자메 마트</button>
+              <button type="button" class="chip" data-merchant="아보보 생활자재점" data-target="골목 거름망·수거소">아보보 자재점</button>
+              <button type="button" class="chip" data-merchant="요푸공 푸드마켓" data-target="수위 센서망">요푸공 마켓</button>
+            </div>
+          </div>
+
+          <div class="picker-group">
+            <span class="picker-label">쿠폰 금액권 · 적립은 가맹점이 부담, 내 추가 비용 없음</span>
+            <div class="chip-row" id="denom-chips">
+              <button type="button" class="chip" data-fcfa="5000">5,000 F<small>약 7.6€</small></button>
+              <button type="button" class="chip is-active" data-fcfa="10000">10,000 F<small>약 15.2€</small></button>
+              <button type="button" class="chip" data-fcfa="25000">25,000 F<small>약 38.1€</small></button>
+            </div>
+          </div>
+
+          <div class="picker-group">
+            <label class="picker-label" for="family">받는 가족</label>
+            <input class="field" id="family" type="text" maxlength="20" placeholder="예: 어머니" />
+          </div>
+
+          <button type="button" class="btn-primary" id="coupon-btn">쿠폰 보내기</button>
+          <p class="hint" id="coupon-hint"></p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-label">최근 적립 내역</h3>
+          <ul class="row-list" id="recent-list">
+            <li><div><strong>아자메 마트 · 25,000 F 쿠폰</strong><span>발송 완료 · 저류공원 기금</span></div><b>+500 F</b></li>
+            <li><div><strong>아보보 자재점 · 10,000 F 쿠폰</strong><span>발송 완료 · 골목 거름망·수거소</span></div><b>+200 F</b></li>
+            <li><div><strong>요푸공 마켓 · 5,000 F 쿠폰</strong><span>발송 완료 · 수위 센서망</span></div><b>+100 F</b></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-label">기금 사용 내역</h3>
+          <ul class="row-list">
+            <li><div><strong>골목 거름망 자재 구입</strong><span>영수증 공개 · 대학생 관리팀 확인</span></div><b class="out">−120,000 F</b></li>
+            <li><div><strong>수위 센서 3대 설치</strong><span>영수증 공개 · 대학생 관리팀 확인</span></div><b class="out">−90,000 F</b></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="page-infra" class="page">
+        <div class="card">
+          <span class="tag warm">핵심 · 동네</span>
+          <h2>스펀지 저류공원</h2>
+          <p class="desc">산책로·운동장·습지 순으로 빗물을 머금고, 넘치면 기존 배수로로 흘려보냅니다.</p>
+        </div>
+        <div class="card">
+          <span class="tag warm">핵심 · 골목</span>
+          <h2>거름망 · 수거소</h2>
+          <p class="desc">배수로 입구에서 쓰레기를 걸러 막힘을 줄입니다. 모은 플라스틱은 수거소로 모읍니다.</p>
+        </div>
+        <div class="card">
+          <span class="tag warm">핵심 · 알림</span>
+          <h2>수위 센서 · 문자 알림</h2>
+          <p class="desc">센서가 수위와 막힘을 감지하면 주민과 해외 가족에게 알립니다.</p>
+        </div>
+        <div class="card">
+          <span class="tag">확장 계획</span>
+          <h2>빗물 탱크 · 플라스틱 벽돌</h2>
+          <p class="desc">집마다 빗물 탱크를 두고, 모은 플라스틱은 벽돌로 만드는 단계는 파일럿 이후 검토합니다.</p>
+        </div>
+      </section>
+
+      <section id="page-alert" class="page">
+        <div class="card">
+          <div class="card-top">
+            <span class="tag alert" id="level-tag">주의 · 수위 64%</span>
+            <span class="mono-sm">아비장</span>
+          </div>
+          <h2>침수 경보 &amp; 대피 안내</h2>
+          <p class="desc">해외 가족과 아비장 주민에게 수위 위험 단계와 대피 거점을 함께 안내합니다. 60% 이상 주의, 80% 이상 위험입니다.</p>
+          <div class="info-box">대피 거점(가상 예시): 아자메 커뮤니티 센터 상층부</div>
+        </div>
+
+        <div class="card">
+          <span class="tag">배수로 신고</span>
+          <h2>막힘 구간 접수</h2>
+          <p class="desc">쓰레기가 쌓인 배수로나 거름망 위치를 대학생 관리팀에 전달합니다.</p>
+          <div class="picker-group">
+            <label class="picker-label" for="report-loc">위치</label>
+            <select class="field" id="report-loc">
+              <option>아자메</option>
+              <option>아보보</option>
+              <option>요푸공</option>
+            </select>
+          </div>
+          <button type="button" class="btn-primary" id="report-btn">막힘 신고 보내기</button>
+          <p class="hint" id="report-hint">최근 조치(가상 예시): 아보보 2번 골목 거름망 정비 완료</p>
+        </div>
+      </section>
+
+      <p class="demo-note">시연용 프로토타입입니다. 금액·대피 거점·신고 내역은 가상 데이터이며 실제 기금 운영이 아닙니다.</p>
+    </div>
+
+    <nav class="bottom-tabs" aria-label="앱 탭">
+      <button type="button" class="tab is-active" data-page="page-home">홈</button>
+      <button type="button" class="tab" data-page="page-infra">인프라</button>
+      <button type="button" class="tab" data-page="page-alert">경보·신고</button>
+    </nav>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const fmt = (n) => n.toLocaleString('en-US');
+
+    /* 탭 전환 */
+    const tabs = document.querySelectorAll('.tab');
+    const pages = document.querySelectorAll('.page');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      pages.forEach((p) => p.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      $(tab.dataset.page).classList.add('is-active');
+      document.querySelector('.app-scroll').scrollTop = 0;
+    }));
+
+    /* 시연용 상태 (가정값) */
+    const RATE = 0.02;      // 가맹점 적립률
+    const GOAL = 1000000;   // 펀딩 목표(FCFA)
+    const LEVEL = 64;       // 저류공원 수위(%)
+    let raised = 370000;
+    let mine = 800;
+    let merchant = { short: '아자메 마트', name: '아자메 식료품점', target: '저류공원 기금' };
+    let face = 10000;
+    const gift = () => Math.round(face * RATE);
+
+    const hint = $('coupon-hint');
+    const setHint = (msg) => { hint.textContent = msg; };
+
+    function render() {
+      const pct = Math.min(100, (raised / GOAL) * 100);
+      $('pct-val').textContent = `${pct.toFixed(1)}%`;
+      $('meter-fill').style.width = `${pct}%`;
+      $('raised-val').textContent = `${fmt(raised)} FCFA`;
+      $('mine-val').textContent = `+${fmt(mine)} F`;
+      $('preview-val').textContent = `+${fmt(gift())} F`;
+      $('coupon-btn').textContent = `${merchant.short} · ${fmt(face)} F 쿠폰 보내기`;
+      setHint(`가맹점이 ${fmt(gift())} F를 [${merchant.target}]에 적립합니다 · 내 추가 부담 없음`);
+    }
+
+    function pick(groupId, onPick) {
+      const chips = document.querySelectorAll(`#${groupId} .chip`);
+      chips.forEach((chip) => chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('is-active'));
+        chip.classList.add('is-active');
+        onPick(chip);
+        render();
+      }));
+    }
+    pick('merchant-chips', (c) => { merchant = { short: c.textContent.trim(), name: c.dataset.merchant, target: c.dataset.target }; });
+    pick('denom-chips', (c) => { face = Number(c.dataset.fcfa); });
+
+    function addRecent(title, sub, amount) {
+      const li = document.createElement('li');
+      const box = document.createElement('div');
+      const s1 = document.createElement('strong'); s1.textContent = title;
+      const s2 = document.createElement('span'); s2.textContent = sub;
+      const b = document.createElement('b'); b.textContent = amount;
+      box.append(s1, s2); li.append(box, b);
+      $('recent-list').prepend(li);
+    }
+
+    $('coupon-btn').addEventListener('click', () => {
+      const add = gift();
+      const who = $('family').value.trim() || '가족';
+      raised += add;
+      mine += add;
+      addRecent(`${merchant.short} · ${fmt(face)} F 쿠폰`, `${who}에게 방금 발송 · ${merchant.target}`, `+${fmt(add)} F`);
+      render();
+      setHint(`${who}에게 ${merchant.short} 쿠폰 발송 완료 · +${fmt(add)} F 적립`);
+    });
+
+    /* 수위 단계 */
+    const level = LEVEL >= 80 ? '위험' : LEVEL >= 60 ? '주의' : LEVEL >= 40 ? '관심' : '안정';
+    $('level-badge').textContent = `저류 수위 ${LEVEL}%`;
+    $('level-tag').textContent = `${level} · 수위 ${LEVEL}%`;
+
+    /* 배수로 신고 */
+    let reportSeq = 0;
+    $('report-btn').addEventListener('click', () => {
+      reportSeq += 1;
+      $('report-hint').textContent = `신고 #${reportSeq}건 접수 · ${$('report-loc').value} 구간을 관리팀에 전달했습니다`;
+    });
+
+    render();
+  </script>
+</body>
+</html>
